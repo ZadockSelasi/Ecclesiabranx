@@ -4,7 +4,6 @@ import { MagnetizeButton } from "@/components/ui/magnetize-button";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { motion } from "framer-motion";
 import { Rocket, Target, Users, Zap } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function AboutPage() {
@@ -90,7 +89,7 @@ export default function AboutPage() {
                             Redefining Digital Identity with <span className="text-emerald-400">Intelligence</span>
                         </h1>
                         <p className="text-lg md:text-xl text-emerald-200/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-                            Ecclesiabranx is a new-age digital agency operating at the intersection of aesthetic excellence and artificial intelligence. We build brands that don't just look good—they think, adapt, and perform.
+                            Ecclesiabranx is a new-age digital agency operating at the intersection of aesthetic excellence and artificial intelligence. We build brands that don&apos;t just look good—they think, adapt, and perform.
                         </p>
                         <div className="flex justify-center">
                             <MagnetizeButton
@@ -141,7 +140,7 @@ export default function AboutPage() {
                                 We believe that the future of branding lies in the harmony between human creativity and machine intelligence. Our mission is to democratize access to premium, high-tech brand identities for businesses of all sizes.
                             </p>
                             <p className="text-emerald-200/80 mb-6 leading-relaxed">
-                                Standard templates are no longer enough. In a crowded digital marketplace, your brand needs to be dynamic, responsive, and uniquely yours. That's where we come in.
+                                Standard templates are no longer enough. In a crowded digital marketplace, your brand needs to be dynamic, responsive, and uniquely yours. That&apos;s where we come in.
                             </p>
                             <div className="h-1 w-20 bg-emerald-500 rounded-full" />
                         </motion.div>

@@ -1,10 +1,8 @@
 "use client"
 
-import { MagnetizeButton } from "@/components/ui/magnetize-button";
 // Removed unused imports: Button, Input, Label, Textarea -> they are in OnboardingForm now
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
 
 import OnboardingForm from "@/components/ui/multistep-form";
 import { LocationMap } from "@/components/ui/expand-map";

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Mail, Lock, Eye, EyeClosed, ArrowRight } from 'lucide-react';
@@ -30,7 +30,6 @@ export function Component() {
     const [error, setError] = useState<string | null>(null);
     const [focusedInput, setFocusedInput] = useState<"email" | "password" | null>(null);
     const [rememberMe, setRememberMe] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     // For 3D card effect - increased rotation range for more pronounced 3D effect
     const mouseX = useMotionValue(0);
@@ -42,7 +41,6 @@ export function Component() {
         const rect = e.currentTarget.getBoundingClientRect();
         mouseX.set(e.clientX - rect.left - rect.width / 2);
         mouseY.set(e.clientY - rect.top - rect.height / 2);
-        setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseLeave = () => {

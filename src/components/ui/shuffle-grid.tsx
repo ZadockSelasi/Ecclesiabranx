@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -120,25 +120,17 @@ const squareData = [
     },
 ];
 
-const generateSquares = (data: typeof squareData) => {
-    return data.map((sq) => (
-        <motion.div
-            key={sq.id}
-            layout
-            transition={{ duration: 1.5, type: "spring" }}
-            className="w-full h-full rounded-md overflow-hidden bg-emerald-950/20"
-            style={{
-                backgroundImage: `url(${sq.src})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        ></motion.div>
-    ));
-};
+
 
 const ShuffleGrid = () => {
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const [squares, setSquares] = useState(squareData);
+
+    const shuffleSquares = useCallback(function shuffleSquares() {
+        setSquares((prev) => shuffle([...prev]));
+
+        timeoutRef.current = setTimeout(shuffleSquares, 3000);
+    }, []);
 
     useEffect(() => {
         shuffleSquares();
@@ -148,13 +140,7 @@ const ShuffleGrid = () => {
                 clearTimeout(timeoutRef.current);
             }
         };
-    }, []);
-
-    const shuffleSquares = () => {
-        setSquares((prev) => shuffle([...prev]));
-
-        timeoutRef.current = setTimeout(shuffleSquares, 3000);
-    };
+    }, [shuffleSquares]);
 
     return (
         <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChatBubbleLeftRightIcon, XMarkIcon, PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Message {
     id: string;
@@ -24,10 +25,11 @@ export default function FloatingAI() {
     };
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         setMessages([
             {
-                id: "1",
+                id: uuidv4(),
                 text: "👋 Hello! How can I assist with your brand today?",
                 sender: "ai",
                 timestamp: new Date(),
@@ -47,7 +49,7 @@ export default function FloatingAI() {
         if (!inputValue.trim()) return;
 
         const userMessage: Message = {
-            id: Date.now().toString(),
+            id: uuidv4(),
             text: inputValue,
             sender: "user",
             timestamp: new Date(),
@@ -60,7 +62,7 @@ export default function FloatingAI() {
         // Simulate AI response
         setTimeout(() => {
             const aiResponse: Message = {
-                id: (Date.now() + 1).toString(),
+                id: uuidv4(),
                 text: getMockResponse(inputValue),
                 sender: "ai",
                 timestamp: new Date(),

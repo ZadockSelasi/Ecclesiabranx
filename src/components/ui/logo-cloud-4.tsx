@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
@@ -22,17 +23,19 @@ export function LogoCloud({ logos }: LogoCloudProps) {
             </div>
 
             <InfiniteSlider gap={42} reverse duration={60} durationOnHover={20}>
-                {logos.map((logo) => (
-                    <img
-                        alt={logo.alt}
-                        className="pointer-events-none h-8 select-none md:h-10 invert opacity-50 hover:opacity-100 transition-all duration-300"
-                        height="auto"
-                        key={`logo-${logo.alt}`}
-                        loading="lazy"
-                        src={logo.src}
-                        width="auto"
-                    />
-                ))}
+                {logos.map((logo) => {
+                    return (
+                        <img
+                            alt={logo.alt}
+                            className="pointer-events-none h-8 select-none md:h-10 invert opacity-50 hover:opacity-100 transition-all duration-300"
+                            height="auto"
+                            key={`logo-${logo.alt}`}
+                            loading="lazy"
+                            src={logo.src}
+                            width="auto"
+                        />
+                    )
+                })}
             </InfiniteSlider>
 
             <ProgressiveBlur

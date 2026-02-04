@@ -23,7 +23,7 @@ interface Particle {
 function MagnetizeButton({
     className,
     particleCount = 12,
-    attractRadius = 50,
+    // attractRadius = 50,
     mainText,
     hoverText,
     children,
@@ -39,6 +39,7 @@ function MagnetizeButton({
             x: Math.random() * 360 - 180,
             y: Math.random() * 360 - 180,
         }));
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setParticles(newParticles);
     }, [particleCount]);
 

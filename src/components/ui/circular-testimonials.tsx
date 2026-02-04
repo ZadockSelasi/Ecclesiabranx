@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 import React, {
     useEffect,
     useRef,
@@ -102,6 +103,17 @@ export const CircularTestimonials = ({
         };
     }, [autoplay, testimonialsLength]);
 
+    // Navigation handlers
+    const handleNext = useCallback(() => {
+        setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+        if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+    }, [testimonialsLength]);
+
+    const handlePrev = useCallback(() => {
+        setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+        if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+    }, [testimonialsLength]);
+
     // Keyboard navigation
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
@@ -113,21 +125,11 @@ export const CircularTestimonials = ({
         // eslint-disable-next-line
     }, [activeIndex, testimonialsLength]);
 
-    // Navigation handlers
-    const handleNext = useCallback(() => {
-        setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-        if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-    }, [testimonialsLength]);
-    const handlePrev = useCallback(() => {
-        setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
-        if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-    }, [testimonialsLength]);
-
     // Compute transforms for each image (always show 3: left, center, right)
     function getImageStyle(index: number): React.CSSProperties {
         const gap = calculateGap(containerWidth);
         const maxStickUp = gap * 0.8;
-        const offset = (index - activeIndex + testimonialsLength) % testimonialsLength;
+        // const offset = (index - activeIndex + testimonialsLength) % testimonialsLength;
         // const zIndex = testimonialsLength - Math.abs(offset);
         const isActive = index === activeIndex;
         const isLeft = (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
@@ -180,16 +182,18 @@ export const CircularTestimonials = ({
             <div className="testimonial-grid">
                 {/* Images */}
                 <div className="image-container" ref={imageContainerRef}>
-                    {testimonials.map((testimonial, index) => (
-                        <img
-                            key={testimonial.src}
-                            src={testimonial.src}
-                            alt={testimonial.name}
-                            className="testimonial-image"
-                            data-index={index}
-                            style={getImageStyle(index)}
-                        />
-                    ))}
+                    {testimonials.map((testimonial, index) => {
+                        return (
+                            <img
+                                key={testimonial.src}
+                                src={testimonial.src}
+                                alt={testimonial.name}
+                                className="testimonial-image"
+                                data-index={index}
+                                style={getImageStyle(index)}
+                            />
+                        )
+                    })}
                 </div>
                 {/* Content */}
                 <div className="testimonial-content">

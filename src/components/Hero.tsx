@@ -1,7 +1,6 @@
 "use client";
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 import GenerativeMountainScene from "@/components/ui/mountain-scene";
 import { MagnetizeButton } from "@/components/ui/magnetize-button";

@@ -36,7 +36,7 @@ export default function AdminDashboard() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-white tracking-tight">Dashboard Overview</h1>
-                    <p className="text-emerald-500/60 mt-1">Welcome back, Zadock. Here's what's happening with Ecclesia today.</p>
+                    <p className="text-emerald-500/60 mt-1">Welcome back, Zadock. Here&apos;s what&apos;s happening with Ecclesia today.</p>
                 </div>
                 <button className="flex items-center justify-center px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-medium transition-all active:scale-95 shadow-lg shadow-emerald-900/20">
                     <Plus size={18} className="mr-2" />

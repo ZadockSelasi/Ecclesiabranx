@@ -10,8 +10,6 @@ import {
     Sparkles,
     ArrowUpRight,
     ChevronRight,
-    PieChart,
-    LineChart,
     BrainCircuit
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -171,7 +169,7 @@ export default function MarketingAnalytics() {
                                 <div className="px-2 py-0.5 rounded bg-white/20 text-[10px] font-bold uppercase tracking-wider">Live</div>
                             </div>
                             <p className="text-emerald-50/80 text-sm leading-relaxed mb-6">
-                                "I've analyzed your current marketing spend. You could increase conversion by 12% by shifting resources to organic search."
+                                &quot;I&apos;ve analyzed your current marketing spend. You could increase conversion by 12% by shifting resources to organic search.&quot;
                             </p>
                             <button className="w-full py-2 bg-white text-emerald-600 rounded-lg text-sm font-bold shadow-sm hover:bg-emerald-50 transition-colors">
                                 Apply AI Suggestions

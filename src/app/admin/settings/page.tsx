@@ -4,15 +4,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     User,
-    Settings as SettingsIcon,
     Bot,
     Shield,
-    Bell,
     Palette,
     Save,
     RefreshCw,
-    Mail,
-    Lock,
     Globe,
     Sparkles,
     Eye,

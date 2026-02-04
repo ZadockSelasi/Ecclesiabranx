@@ -58,10 +58,10 @@ interface FormData {
     additionalInfo: string;
 }
 
-const fadeInUp = {
+/* const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-};
+}; */
 
 const contentVariants = {
     hidden: { opacity: 0, x: 50 },
@@ -156,32 +156,32 @@ const OnboardingForm = () => {
                 transition={{ duration: 0.5 }}
             >
                 <div className="flex justify-between mb-2">
-                    {steps.map((step, index) => (
+                    {steps.map((step, idx) => (
                         <motion.div
-                            key={index}
+                            key={idx}
                             className="flex flex-col items-center"
                             whileHover={{ scale: 1.1 }}
                         >
                             <div
                                 className={cn(
                                     "w-4 h-4 rounded-full cursor-pointer transition-colors duration-300",
-                                    index < currentStep
+                                    idx < currentStep
                                         ? "bg-emerald-500"
-                                        : index === currentStep
+                                        : idx === currentStep
                                             ? "bg-emerald-500 ring-4 ring-emerald-500/20"
                                             : "bg-emerald-900/50",
                                 )}
                                 onClick={() => {
                                     // Only allow going back or to completed steps
-                                    if (index <= currentStep) {
-                                        setCurrentStep(index);
+                                    if (idx <= currentStep) {
+                                        setCurrentStep(idx);
                                     }
                                 }}
                             />
                             <span
                                 className={cn(
                                     "text-xs mt-1.5 hidden sm:block",
-                                    index === currentStep
+                                    idx === currentStep
                                         ? "text-emerald-400 font-medium"
                                         : "text-emerald-600/60",
                                 )}
@@ -578,7 +578,7 @@ const OnboardingForm = () => {
                                                         "Social Media Integration",
                                                         "Newsletter Signup",
                                                         "Analytics",
-                                                    ].map((feature, index) => (
+                                                    ].map((feature) => (
                                                         <div
                                                             key={feature}
                                                             className="flex items-center space-x-2 rounded-md border border-emerald-800 p-3 cursor-pointer hover:bg-emerald-900/50 transition-colors"
